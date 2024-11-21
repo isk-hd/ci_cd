@@ -1,4 +1,3 @@
-# Déclenchement du pipeline pour test
 stages:
   - test
   - deploy
@@ -27,7 +26,7 @@ deploy_on_tag:
   before_script:
     - pip install hatch hatch-vcs
   script:
-    - echo "my-arithmetic-$USER deployment on stable servers"
+    - echo "my-arithmetic-ihadji deployment on stable servers"
     - hatch build
     - ls dist/
   only:
@@ -39,7 +38,7 @@ deploy_on_develop:
   before_script:
     - pip install hatch hatch-vcs
   script:
-    - echo "my-arithmetic-$USER deployment on develop servers"
+    - echo "my-arithmetic-ihadji deployment on develop servers"
     - hatch build
     - ls dist/
   only:
