@@ -3,5 +3,19 @@ stages:
 
 test_job:
   stage: test
+  image: python:3.12
+  before_script:
+    - pip install hatch coverage
+    - hatch env create
   script:
-    - echo "Running a test job on Docker"
+    - coverage run -m unittest discover
+    - coverage report
+    - coverage xml
+  coverage: '/TOTAL.+?(\d+\%)$/'
+  artifacts:
+    reports:
+      cobertura: coverage.xml
+    paths:
+      - htmlcov/
+  only:
+    - main
