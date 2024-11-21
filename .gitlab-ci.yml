@@ -27,11 +27,24 @@ deploy_on_tag:
     - pip install hatch hatch-vcs
   script:
     - echo "my-arithmetic-ihadji deployment on stable servers"
-    - cd my-arithmetic-  # Se déplacer dans le dossier où se trouve pyproject.toml
+    - cd my-arithmetic-  # Se déplacer vers le bon répertoire pour accéder à `pyproject.toml`
     - hatch build
     - ls dist/
   only:
     - tags
+
+deploy_on_main:
+  stage: deploy
+  image: python:3.12
+  before_script:
+    - pip install hatch hatch-vcs
+  script:
+    - echo "my-arithmetic-ihadji deployment on stable servers"
+    - cd my-arithmetic-  # Se déplacer vers le bon répertoire pour accéder à `pyproject.toml`
+    - hatch build
+    - ls dist/
+  only:
+    - main
 
 deploy_on_develop:
   stage: deploy
@@ -40,7 +53,7 @@ deploy_on_develop:
     - pip install hatch hatch-vcs
   script:
     - echo "my-arithmetic-ihadji deployment on develop servers"
-    - cd my-arithmetic-  # Se déplacer dans le dossier où se trouve pyproject.toml
+    - cd my-arithmetic-  # Se déplacer vers le bon répertoire pour accéder à `pyproject.toml`
     - hatch build
     - ls dist/
   only:
