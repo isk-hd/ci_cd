@@ -13,9 +13,8 @@ test_job:
     - coverage xml
   coverage: '/TOTAL.+?(\d+\%)$/'
   artifacts:
-    reports:
-      cobertura: coverage.xml
     paths:
+      - coverage.xml
       - htmlcov/
   only:
     - main
