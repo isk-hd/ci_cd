@@ -63,3 +63,6 @@ exclude_lines = [
 [tool.hatch.metadata]
 vcs = "git"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/my_arithmetic_"]
+
