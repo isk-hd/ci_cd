@@ -1,5 +1,6 @@
 stages:
   - test
+  - deploy
 
 test_job:
   stage: test
@@ -18,3 +19,27 @@ test_job:
       - htmlcov/
   only:
     - main
+
+deploy_on_tag:
+  stage: deploy
+  image: python:3.12
+  before_script:
+    - pip install hatch hatch-vcs
+  script:
+    - echo "my-arithmetic-$USER deployment on stable servers"
+    - hatch build
+    - ls dist/
+  only:
+    - tags
+
+deploy_on_develop:
+  stage: deploy
+  image: python:3.12
+  before_script:
+    - pip install hatch hatch-vcs
+  script:
+    - echo "my-arithmetic-$USER deployment on develop servers"
+    - hatch build
+    - ls dist/
+  only:
+    - develop

@@ -60,6 +60,11 @@ exclude_lines = [
   "if TYPE_CHECKING:",
 ]
 
+[tool.hatch.metadata]
+vcs = "git"
+
+[tool.hatch.build]
+hooks = ["vcs"]
 
 
 
