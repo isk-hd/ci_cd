@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "my-arithmetic"  # Correction: supprime le tiret final
+name = "my-arithmetic"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -62,6 +62,4 @@ exclude_lines = [
 
 [tool.hatch.metadata]
 vcs = "git"
-
-[tool.hatch.build.hooks.vcs]
 
