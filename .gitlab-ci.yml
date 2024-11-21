@@ -8,6 +8,7 @@ test_job:
   before_script:
     - pip install hatch coverage
     - hatch env create
+    - export PYTHONPATH=$PYTHONPATH:$(pwd)/src  # Ajouter src au PYTHONPATH
   script:
     - coverage run -m unittest discover
     - coverage report
