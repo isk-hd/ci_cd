@@ -10,9 +10,8 @@ test_job:
     - hatch env create
     - export PYTHONPATH=$(pwd)  # Assurer que la racine est ajoutée au PYTHONPATH pour garantir l'accès aux modules
   script:
-    - python -c "import my_arithmetic_"  # Forcer l'importation
     - coverage run --source=my_arithmetic_ -m unittest discover -s tests -t .
-    - coverage report
+    - coverage report -m
     - coverage xml
   coverage: '/TOTAL.+?(\d+\%)$/'
   artifacts:
