@@ -8,9 +8,9 @@ test_job:
   before_script:
     - pip install hatch coverage
     - hatch env create
-    - export PYTHONPATH=$(pwd)/src  # Assurer que src est ajouté au PYTHONPATH
+    - export PYTHONPATH=$(pwd)/src  # Ajouter 'src' au PYTHONPATH pour garantir l'accès aux modules
   script:
-    - coverage run -m unittest discover -s tests -t .
+    - coverage run --source=my_arithmetic_ -m unittest discover -s tests -t .
     - coverage report
     - coverage xml
   coverage: '/TOTAL.+?(\d+\%)$/'
