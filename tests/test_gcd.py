@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from src.my_arithmetic_.gcd import gcd
+from my_arithmetic_.gcd import gcd
 import unittest
 
 class TestGCD(unittest.TestCase):

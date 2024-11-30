@@ -8,9 +8,9 @@ test_job:
   before_script:
     - pip install hatch coverage
     - hatch env create
-    - export PYTHONPATH=$PYTHONPATH:$(pwd)/src  # Ajouter src au PYTHONPATH
+    - export PYTHONPATH=$(pwd)/src  # Assurer que src est ajouté au PYTHONPATH
   script:
-    - coverage run -m unittest discover
+    - coverage run -m unittest discover -s tests -t .
     - coverage report
     - coverage xml
   coverage: '/TOTAL.+?(\d+\%)$/'
